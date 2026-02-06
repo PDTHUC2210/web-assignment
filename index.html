@@ -2,147 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Accessibility Website</title>
+    <title>My Personal Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
-        /* ===== Reset ===== */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
+            background: #f4f4f4;
         }
 
-        /* ===== Skip Link ===== */
-        .skip-link {
-            position: absolute;
-            left: -999px;
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
         }
 
-        .skip-link:focus {
-            left: 10px;
-            top: 10px;
-            background: yellow;
-            padding: 8px;
-            z-index: 1000;
-        }
-
-        /* ===== Navigation ===== */
         nav {
-            background: #222;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
+            background: #555;
             padding: 10px;
-            gap: 20px;
+            text-align: center;
         }
 
         nav a {
             color: white;
+            margin: 0 15px;
             text-decoration: none;
-            padding: 8px 14px;
-            border-radius: 6px;
         }
 
-        nav a:hover {
-            background: orange;
+        main {
+            padding: 20px;
         }
 
-        /* ===== Sections ===== */
-        section {
-            padding: 40px;
-        }
-
-        h1 {
-            margin-top: 0;
-        }
-
-        /* ===== Images ===== */
         img {
-            width: 220px;
-            border: 3px solid black;
-            border-radius: 12px;
-            padding: 4px;
-            transition: transform 0.2s;
+            width: 300px;
+            border-radius: 10px;
         }
 
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        /* ===== Flex Gallery ===== */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        /* ===== nth-child style ===== */
-        .gallery img:nth-child(even) {
-            border-color: orange;
-        }
-
-        /* ===== Responsive ===== */
-        @media (max-width: 600px) {
-            .gallery {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* ===== Print style ===== */
-        @media print {
-            nav {
-                display: none;
-            }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
 
-<!-- Skip link -->
-<a href="#main" class="skip-link">Skip to Main Content</a>
+<header>
+    <h1>Welcome to My Website</h1>
+    <p>This is my HTML assignment</p>
+</header>
 
-<!-- Navigation -->
 <nav>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-    </ul>
+    <!-- 3 links -->
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
 </nav>
 
-<main id="main">
+<main>
 
-    <!-- HOME PAGE -->
-    <section id="home">
-        <h1>Welcome</h1>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am learning HTML, CSS, and web development.</p>
 
-        <p>
-            This website demonstrates accessibility features, navigation,
-            hover effects, Flexbox layout, and responsive design.
-        </p>
-
-        <img src="https://picsum.photos/300/200?1" alt="Random nature image 1">
-        <img src="https://picsum.photos/300/200?2" alt="Random nature image 2">
+        <!-- image -->
+        <img src="https://picsum.photos/300" alt="Random placeholder image">
     </section>
 
+    <section id="projects">
+        <h2>My Projects</h2>
+        <ul>
+            <li>Portfolio Website</li>
+            <li>Java OOP Project</li>
+            <li>GitHub Pages Deployment</li>
+        </ul>
+    </section>
 
-    <!-- GALLERY PAGE -->
-    <section id="gallery">
-        <h1>Gallery</h1>
+    <section id="contact">
+        <h2>Contact</h2>
 
-        <div class="gallery">
-            <img src="https://picsum.photos/300/200?3" alt="Mountain landscape">
-            <img src="https://picsum.photos/300/200?4" alt="Forest trees">
-            <img src="https://picsum.photos/300/200?5" alt="Ocean view">
-            <img src="https://picsum.photos/300/200?6" alt="Sunset sky">
-            <img src="https://picsum.photos/300/200?7" alt="River scenery">
-        </div>
+        <!-- external link -->
+        <p>
+            Visit my GitHub:
+            <a href="https://github.com" target="_blank">
+                GitHub Profile
+            </a>
+        </p>
     </section>
 
 </main>
+
+<footer>
+    <p>© 2026 My Web Assignment</p>
+</footer>
 
 </body>
 </html>
