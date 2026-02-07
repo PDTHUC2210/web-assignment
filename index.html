@@ -2,50 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Personal Website</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Photo Gallery</title>
 
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f4f4f4;
+            text-align: center;
+            background: #f5f5f5;
         }
 
         header {
-            background: #333;
-            color: white;
             padding: 20px;
-            text-align: center;
         }
 
-        nav {
-            background: #555;
-            padding: 10px;
-            text-align: center;
+        #preview {
+            width: 400px;
+            height: 250px;
+            border: 3px solid #333;
+            margin: 20px auto;
+            line-height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-color: #ddd;
         }
 
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-        }
-
-        main {
-            padding: 20px;
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         img {
-            width: 300px;
-            border-radius: 10px;
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 3px solid transparent;
         }
 
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            margin-top: 20px;
+        img:hover,
+        img:focus {
+            border: 3px solid blue;
+            outline: none;
         }
     </style>
 </head>
@@ -53,46 +52,47 @@
 <body>
 
 <header>
-    <h1>Welcome to My Website</h1>
-    <p>This is my HTML assignment</p>
+    <h1>My Accessible Photo Gallery</h1>
+    <p>
+        Built with HTML5, JavaScript, and accessibility best practices.
+        Visit <a href="https://validator.w3.org/" target="_blank">W3C Validator</a>
+    </p>
 </header>
-
-<nav>
-    <!-- 3 links -->
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</nav>
 
 <main>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I am learning HTML, CSS, and web development.</p>
+    <!-- Preview box -->
+    <div id="preview">
+        Hover or focus an image
+    </div>
 
-        <!-- image -->
-        <img src="https://picsum.photos/300" alt="Random placeholder image">
-    </section>
+    <!-- Gallery -->
+    <section class="gallery">
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <ul>
-            <li>Portfolio Website</li>
-            <li>Java OOP Project</li>
-            <li>GitHub Pages Deployment</li>
-        </ul>
-    </section>
+        <img src="https://picsum.photos/id/1015/600/400"
+             alt="Mountain landscape"
+             tabindex="0">
 
-    <section id="contact">
-        <h2>Contact</h2>
+        <img src="https://picsum.photos/id/1025/600/400"
+             alt="Cute dog"
+             tabindex="0">
 
-        <!-- external link -->
-        <p>
-            Visit my GitHub:
-            <a href="https://github.com" target="_blank">
-                GitHub Profile
-            </a>
-        </p>
+        <img src="https://picsum.photos/id/1035/600/400"
+             alt="Forest road"
+             tabindex="0">
+
+        <img src="https://picsum.photos/id/1040/600/400"
+             alt="Beach sunset"
+             tabindex="0">
+
+        <img src="https://picsum.photos/id/1050/600/400"
+             alt="City skyline"
+             tabindex="0">
+
+        <img src="https://picsum.photos/id/1060/600/400"
+             alt="Snow mountain"
+             tabindex="0">
+
     </section>
 
 </main>
@@ -100,6 +100,29 @@
 <footer>
     <p>© 2026 My Web Assignment</p>
 </footer>
+
+
+<script>
+    const preview = document.getElementById("preview");
+    const images = document.querySelectorAll("img");
+
+    function showImage() {
+        preview.style.backgroundImage = `url(${this.src})`;
+        preview.textContent = this.alt;
+    }
+
+    function clearImage() {
+        preview.style.backgroundImage = "";
+        preview.textContent = "Hover or focus an image";
+    }
+
+    images.forEach(img => {
+        img.addEventListener("mouseover", showImage);
+        img.addEventListener("mouseleave", clearImage);
+        img.addEventListener("focus", showImage);
+        img.addEventListener("blur", clearImage);
+    });
+</script>
 
 </body>
 </html>
