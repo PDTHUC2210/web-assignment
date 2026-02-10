@@ -1,0 +1,51 @@
+/* ===== Mobile First ===== */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+    text-align: center;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 20px;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.gallery img {
+    width: 95%;
+    margin: auto;
+    border-radius: 8px;
+}
+
+
+/* ===== Tablet (>= 772px) ===== */
+@media (min-width: 772px) {
+
+    .gallery {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .gallery img {
+        width: 45%;
+    }
+}
+
+
+/* ===== Desktop (>= 998px) ===== */
+@media (min-width: 998px) {
+
+    .gallery img {
+        width: 30%;
+    }
+}
